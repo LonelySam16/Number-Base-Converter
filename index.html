@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+
+    <script>
+      function d() {
+        var x = parseInt(document.getElementById("ten").value);
+
+        document.getElementById("two").value = x.toString(2);
+        document.getElementById("eight").value = x.toString(8);
+        document.getElementById("sixteen").value = x.toString(16);
+      }
+      function h() {
+        //   const regg = /[0-9a-fA-F]*/;
+        //   document
+        //     .getElementById("sixteen")
+        //     .addEventListener("beforinput", (event) => {
+        //       if (!regg.test(event.key)) {
+        //         event.preventDefault();
+        //       }
+        //     });
+        var x = parseInt(document.getElementById("sixteen").value, 16);
+
+        document.getElementById("two").value = x.toString(2);
+        document.getElementById("eight").value = x.toString(8);
+        document.getElementById("ten").value = x.toString(10);
+      }
+      function o() {
+        var x = parseInt(document.getElementById("eight").value, 8);
+        // let r = /[0-7]*/;
+
+        // console.log(r.test(x));
+        document.getElementById("two").value = x.toString(2);
+        document.getElementById("sixteen").value = x.toString(16);
+        document.getElementById("ten").value = x.toString(10);
+      }
+      function b() {
+        var x = parseInt(document.getElementById("two").value, 2);
+
+        document.getElementById("eight").value = x.toString(8);
+        document.getElementById("sixteen").value = x.toString(16);
+        document.getElementById("ten").value = x.toString(10);
+      }
+    </script>
+
+    <title>Converter</title>
+  </head>
+  <body>
+    <div id="box">
+      <label for="">Hexadecimal number &nbsp;&nbsp;</label>
+      <input
+        type="text"
+        id="sixteen"
+        pattern="[0-9a-fA-F]*"
+        onkeyup="event.preventDefault();h()"
+      />
+      <br />
+      <br />
+      <label for="">Decimal number &nbsp;&nbsp;</label>
+      <input type="number" id="ten" onkeyup="event.preventDefault();d()" />
+      <br /><br />
+      <label for="">Binary number &nbsp;&nbsp;</label>
+      <input
+        type="number"
+        id="two"
+        pattern="[0-1]*"
+        onkeyup="event.preventDefault();b()"
+      />
+
+      <br /><br />
+      <label for="">Octal number &nbsp;&nbsp;</label>
+      <input type="number" id="eight" onkeyup="event.preventDefault();o()" />
+      <br />
+    </div>
+  </body>
+</html>
